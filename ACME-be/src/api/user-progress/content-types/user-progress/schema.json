@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_progresses",
+  "info": {
+    "singularName": "user-progress",
+    "pluralName": "user-progresses",
+    "displayName": "userProgress",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Understanding": {
+      "type": "boolean",
+      "default": true
+    },
+    "Developing": {
+      "type": "boolean",
+      "default": false
+    },
+    "Performing": {
+      "type": "boolean",
+      "default": false
+    },
+    "Leading": {
+      "type": "boolean",
+      "default": false
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "userProgress"
+    },
+    "UnderstandingAnswerCount": {
+      "type": "integer"
+    },
+    "UnderstandingScore": {
+      "type": "integer"
+    },
+    "DevelopingAnswerCount": {
+      "type": "integer"
+    },
+    "DevelopingScore": {
+      "type": "integer"
+    },
+    "PerformingAnswerCount": {
+      "type": "integer"
+    },
+    "PerformingScore": {
+      "type": "integer"
+    },
+    "LeadingAnswerCount": {
+      "type": "integer"
+    },
+    "LeadingScore": {
+      "type": "integer"
+    }
+  }
+}

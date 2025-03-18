@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "quizzes",
+  "info": {
+    "singularName": "quiz",
+    "pluralName": "quizzes",
+    "displayName": "Quiz",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "quizeType": {
+      "type": "enumeration",
+      "enum": [
+        "singleAnswer",
+        "multipleAnswer",
+        "imageBased",
+        "dragAndDrop"
+      ]
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "userAnswers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::user-answer.user-answer",
+      "mappedBy": "quiz"
+    },
+    "options": {
+      "type": "json",
+      "required": true
+    },
+    "phase": {
+      "type": "enumeration",
+      "enum": [
+        "Understanding",
+        "Developing",
+        "Performing",
+        "Leading"
+      ]
+    },
+    "duration": {
+      "type": "integer"
+    },
+    "userTypes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::user-type.user-type",
+      "mappedBy": "quizzes"
+    },
+    "answer": {
+      "type": "json",
+      "required": true
+    }
+  }
+}
