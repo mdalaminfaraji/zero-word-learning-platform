@@ -982,12 +982,12 @@ export interface PluginUsersPermissionsUser
   };
   options: {
     draftAndPublish: false;
-    timestamps: true;
   };
   attributes: {
     blocked: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     confirmationToken: Schema.Attribute.String & Schema.Attribute.Private;
     confirmed: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    contact: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1031,6 +1031,7 @@ export interface PluginUsersPermissionsUser
       'oneToOne',
       'api::user-progress.user-progress'
     >;
+    userType: Schema.Attribute.String;
     userTypes: Schema.Attribute.Relation<
       'manyToMany',
       'api::user-type.user-type'
